@@ -13,8 +13,9 @@ const audioPausa = new Audio('sons/pause.mp3');
 const audioTempoFinalizado = new Audio('sons/beep.mp3');
 const textoPlayOuPause = document.querySelector('#start-pause span');
 const iconePlayOuPause = document.querySelector('.app__card-primary-butto-icon');
+const temporizador = document.querySelector('#timer');
 
-let tempoDecorridoEmSegundos = 5;
+let tempoDecorridoEmSegundos = 1500;;
 let intervaloId = null;
 
 musica.loop = true;
@@ -28,21 +29,25 @@ musicaFocoInput.addEventListener('change', () => {
 })
 
 btnFoco.addEventListener('click', () => {
+    tempoDecorridoEmSegundos = 1500;
     alterarContexto('foco');
     btnFoco.classList.add('active');
 })
 
 btnCurto.addEventListener('click', () => {
+    tempoDecorridoEmSegundos = 300;
     alterarContexto('descanso-curto');
     btnCurto.classList.add('active');
 });
 
 btnLongo.addEventListener('click', () => {
+    tempoDecorridoEmSegundos = 900;
     alterarContexto('descanso-longo');
     btnLongo.classList.add('active');
 })
 
 function alterarContexto (contexto){
+    mostrarTempo();
     html.setAttribute('data-contexto', contexto);
     banner.setAttribute('src', `imagens/${contexto}.png`);
     botoes.forEach(function(contexto){
@@ -65,6 +70,7 @@ function alterarContexto (contexto){
 }
 
 const contagemRegressiva = () => {
+    mostrarTempo();
     tempoDecorridoEmSegundos -= 1;
     console.log('Temporizador: ' + tempoDecorridoEmSegundos);
     if(tempoDecorridoEmSegundos <= 0){
@@ -95,3 +101,11 @@ function zerar() {
     clearInterval(intervaloId);
     intervaloId = null;
 }
+
+function mostrarTempo(){
+    const tempo = new Date(tempoDecorridoEmSegundos * 1000); //multiplicando por 1000 porque o Date trabalha com milisegundos
+    const tempoFormatado = tempo.toLocaleTimeString('pt-BR', {minute: '2-digit', second: '2-digit'});
+    temporizador.innerHTML = `${tempoFormatado}`;
+}
+//Manter o temporizador estático na tela
+mostrarTempo();
