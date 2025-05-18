@@ -1,12 +1,3 @@
-//SALDO
-let saldo = 3000;
-
-alert('Testando compilação do TS');
-const elementoSaldo = document.querySelector(".saldo-valor .valor") as HTMLElement;
-if(elementoSaldo != null){
-    elementoSaldo.textContent = saldo.toString();
-}
-
 const elementoFormulario = document.querySelector(".block-nova-transacao form") as HTMLFormElement;
 elementoFormulario.addEventListener("submit", function(event){
     event.preventDefault(); //Coletar as informações e atualizar a página automaticamente
@@ -42,6 +33,3 @@ elementoFormulario.addEventListener("submit", function(event){
     console.log(novaTransacao)
     elementoFormulario.reset();
 });
-
-
-
