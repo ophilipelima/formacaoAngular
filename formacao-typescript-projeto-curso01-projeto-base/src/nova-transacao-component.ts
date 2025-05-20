@@ -17,13 +17,17 @@ elementoFormulario.addEventListener("submit", function(event){
     if(tipoTransacao == TipoTransacao.DEPOSITO){
         saldo += valor;
     }else if(tipoTransacao == TipoTransacao.TRANSFERENCIA || tipoTransacao == TipoTransacao.PAGAMENTO_BOLETO){
-        saldo -= valor;
+        if(saldo < valor){
+            alert("Transação NEGADA - Saldo insuficiente");
+        }else{
+            saldo -= valor;
+        }
     }else{
         alert("Transação inválida");
         return;
     }
 
-    elementoSaldo.textContent = saldo.toString();
+    elementoSaldo.textContent = saldo.toLocaleString("pt-br", {currency: "BRL", style: "currency"}); //Exibir saldo em formato de moeda ao realizar a transaçaõ
 
     const novaTransacao = {
         tipoTransacao : tipoTransacao,
