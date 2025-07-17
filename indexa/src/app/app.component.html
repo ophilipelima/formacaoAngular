@@ -1,12 +1,10 @@
 <app-container>
    <app-cabecalio></app-cabecalio>
-   <app-separador>
-      A
-   </app-separador>
+   
+   @for (letra of alfabeto; track letra) {
     <app-separador>
-      B
-   </app-separador>
-    <app-separador>
-      C
-   </app-separador>
+      {{ letra }}
+    </app-separador>
+   }
+    
 </app-container>
