@@ -5,9 +5,8 @@
     box-shadow: 0px 8px 16px 0px rgba(61, 139, 253, 0.15);
     width: 684px; /* Define uma largura fixa de 684px */
     max-width: 90%; /* Garante que, em telas menores, a largura não ultrapasse 90% da tela (responsivo) */
-    margin: 0 auto; /* Centralizar horizontalmete*/
+    margin: 80px auto; /* Centralizar horizontalmete*/
     padding: 56px 134px;
-    margin-top: 80px;
     box-sizing: border-box;/* Faz com que o padding e a borda sejam incluídos na largura e altura totais do elemento. 
     Ou seja, a largura de 684px já inclui a borda e o padding. */
 }
