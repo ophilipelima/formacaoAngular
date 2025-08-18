@@ -6,8 +6,8 @@ import { ContatoComponent } from '../../componentes/contato/contato.component';
 import { SeparadorComponent } from '../../componentes/separador/separador.component';
 import { FormularioContatoComponent } from '../formulario-contato/formulario-contato.component';
 
-import agenda from '../../agenda.json'
 import { RouterLink } from '@angular/router';
+import { ContatoService } from '../../services/contato.service';
 interface Contato{
   id: number;
   nome: string;
@@ -32,9 +32,13 @@ interface Contato{
 
 export class ListaContatosComponent {
   alfabeto: string = 'abcdefghijklmnopqrstuvwxyz';
-  contatos: Contato[] = agenda;
+  contatos: Contato[] = [];
 
   filtroPorTexto: string = '';
+
+  constructor(private contatoService: ContatoService){
+    this.contatos = this.contatoService.obterContatos();
+  }
 
   removerAcentos(nome: string): string{
     return nome.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
