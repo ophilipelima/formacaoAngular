@@ -18,9 +18,7 @@ export class ContatoService {
     {"id": 4, "nome": "Beatriz", "telefone": "25 854986459"},
     {"id": 5, "nome": "Carlos", "telefone": "94 543197849"},
     {"id": 6, "nome": "Cláudia", "telefone": "31 176437098"},
-    {"id": 7, "nome": "Daniel", "telefone": "56 613692441"},
-    {"id": 8, "nome": "Diana", "telefone": "16 670764734"},
-    {"id": 9, "nome": "Eduardo", "telefone": "71 962784210"}
+    {"id": 7, "nome": "Daniel", "telefone": "56 613692441"}
   ]
 
   constructor() {
@@ -37,3 +35,10 @@ export class ContatoService {
     return this.contatos;
    }
 }
+
+
+
+
+
+
+

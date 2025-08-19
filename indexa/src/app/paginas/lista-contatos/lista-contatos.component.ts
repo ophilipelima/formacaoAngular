@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContainerComponent } from '../../componentes/container/container.component';
 import { FormsModule } from '@angular/forms';
 import { CabecalioComponent } from '../../componentes/cabecalio/cabecalio.component';
@@ -30,15 +30,19 @@ interface Contato{
   styleUrl: './lista-contatos.component.css'
 })
 
-export class ListaContatosComponent {
+export class ListaContatosComponent implements OnInit{
   alfabeto: string = 'abcdefghijklmnopqrstuvwxyz';
   contatos: Contato[] = [];
 
   filtroPorTexto: string = '';
 
   constructor(private contatoService: ContatoService){
+  }
+
+  ngOnInit() {
     this.contatos = this.contatoService.obterContatos();
   }
+
 
   removerAcentos(nome: string): string{
     return nome.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
