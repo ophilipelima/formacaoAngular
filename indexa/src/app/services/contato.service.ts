@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Contato } from '../componentes/contato/contato';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -8,13 +9,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContatoService {
   
-private readonly API = 'http://localhost:300/contatos'
+private readonly API = 'http://localhost:3000/contatos'
 
   constructor(private http: HttpClient) {
     
    }
 
-   obterContatos(){
+   obterContatos(): Observable<Contato[]>{
     return this.http.get<Contato[]>(this.API)
    }
 
