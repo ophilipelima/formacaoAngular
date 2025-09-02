@@ -20,7 +20,7 @@ private readonly API = 'http://localhost:3000/contatos'
    }
 
    salvarContato(contato: Contato){
-    
+    return this.http.post<Contato>(this.API, contato)
    }
    
 }
