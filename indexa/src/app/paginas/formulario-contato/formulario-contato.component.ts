@@ -48,6 +48,7 @@ export class FormularioContatoComponent implements OnInit{
       this.router.navigateByUrl('/lista-contatos')
       //O subscribe está sendo utilizado para executar ações após a conclusão bem-sucedida da requisição.
     })
+    
 
   }
 

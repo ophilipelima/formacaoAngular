@@ -9,6 +9,7 @@ import { FormularioContatoComponent } from '../formulario-contato/formulario-con
 import { RouterLink } from '@angular/router';
 import { ContatoService } from '../../services/contato.service';
 import { Contato } from '../../componentes/contato/contato';
+import { PerfilContatoComponent } from '../perfil-contato/perfil-contato.component';
 
 
 @Component({
@@ -21,7 +22,8 @@ import { Contato } from '../../componentes/contato/contato';
       ContatoComponent,
       FormsModule,
       FormularioContatoComponent,
-      RouterLink
+      RouterLink,
+      PerfilContatoComponent
     ],
   templateUrl: './lista-contatos.component.html',
   styleUrl: './lista-contatos.component.css'
