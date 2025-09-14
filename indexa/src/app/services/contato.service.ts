@@ -27,6 +27,23 @@ private readonly API = 'http://localhost:3000/contatos'
     const url = `${this.API}/${id}`
     return this.http.get<Contato>(url)
    }
+
+   excluirContato(id: number): Observable<Contato>{
+    const url = `${this.API}/${id}`
+    return this.http.delete<Contato>(url)
+   }
+   editarContato(contato: Contato): Observable<Contato>{
+    const url = `${this.API}/${contato.id}`
+    return this.http.put<Contato>(url, contato)
+   }
+
+   editarOuSalvarContato(contato: Contato): Observable<Contato>{
+    if(contato.id){
+      return this.editarContato(contato)
+    } else {
+      return this.salvarContato(contato)
+    }
+   }
 }
 
 
