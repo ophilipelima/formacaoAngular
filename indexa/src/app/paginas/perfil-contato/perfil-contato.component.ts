@@ -18,6 +18,7 @@ export class PerfilContatoComponent {
     contato: Contato = {
     id: 0,
     nome: '',
+    avatar: '',
     telefone: '',
     email: '',
     aniversario: '',
